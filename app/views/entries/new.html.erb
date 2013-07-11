@@ -1,0 +1,57 @@
+<%- model_class = Entry -%>
+<div class="span8">
+	<div class="page-header">
+	  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+	</div>
+	<%= render :partial => 'form' %>
+</div>
+<div class="span4">
+<pre># Header 1 #
+## Header 2 ##
+### Header 3 ### 
+#### Header 4 ####
+##### Header 5 #####
+
+Now some inline markup like _italics_,  **bold**, and `code()`. Note that underscores in words are ignored in Markdown Extra.
+
+![picture alt](/images/photo.jpeg "Title is optional")
+
+&gt; Blockquotes are like quoted text in email replies
+&gt;&gt; And, they can be nested
+
+* Bullet lists are easy too
+- Another one
++ Another one
+
+1. A numbered list
+2. Which is numbered
+3. With periods and a space
+
+And now some code:
+
+    // Code is just text indented a bit
+    which(is_easy) to_remember();
+
+~~~
+
+// Markdown extra adds un-indented code blocks too
+
+if (this_is_more_code == true &amp;&amp; !indented) {
+    // tild wrapped code blocks, also not indented
+}
+
+~~~
+
+Text with  
+two trailing spaces  
+(on the right)  
+can be used  
+for things like poems  
+
+### Horizontal rules
+
+* * * *
+****
+--------------------------
+</pre>
+</div>
