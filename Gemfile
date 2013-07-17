@@ -29,7 +29,6 @@ group :assets do
   gem "therubyracer"
   gem "less-rails"
   gem "twitter-bootstrap-rails"
-  gem 'bootstrap_helper'
 end
 
 gem 'jquery-rails'
@@ -54,3 +53,4 @@ gem "cancan"
 gem "bluecloth"
 gem "simple_form"
 gem "unread"
+gem 'bootstrap_helper'
