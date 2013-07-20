@@ -53,4 +53,4 @@ gem "bluecloth"
 gem "simple_form"
 gem "unread"
 gem "twitter-bootstrap-rails"
-#gem 'bootstrap_helper'
+gem "newrelic_rpm"
