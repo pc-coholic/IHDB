@@ -8,7 +8,19 @@
     <div class="accordion-group">
       <div class="accordion-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= entry.id %>">
-          <%= entry.title %><span class="pull-right">Updated: <%=l entry.updated_at %></span>
+          <% if entry.important? %>
+            <span class="label label-important">Important!</span>
+          <% end %>
+
+          <% if entry.updated_at == entry.created_at %>
+            <span class="label label-success">New!</span>
+          <% elsif entry.unread?(current_user) %>
+            <span class="label label-info">Updated!</span>
+          <% end %>
+          
+          <%= entry.title %>
+
+          <span class="pull-right">Updated: <%=l entry.updated_at %></span>
         </a>
         <div class="accordion-inner">
           <%= BlueCloth.new(entry.abstract).to_html.html_safe %>
