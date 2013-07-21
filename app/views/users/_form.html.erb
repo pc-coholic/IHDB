@@ -12,9 +12,11 @@
   <div class="control-group">
     <%= f.input :email %>
   </div>
-  <div class="control-group">
-    <%= f.input :roles %>
-  </div>
+  <% if can? :manage, User %>
+    <div class="control-group">
+      <%= f.input :roles %>
+    </div>
+  <% end %>
   <div class="control-group">
     <%= f.input :password %>
   </div>
