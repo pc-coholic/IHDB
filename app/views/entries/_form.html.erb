@@ -8,9 +8,11 @@
   <div class="control-group">
     <%= f.input :content, :input_html => { :class => 'span8' } %>
   </div>
-  <div class="control-group">
-    <%= f.input :important, :as => :boolean, :input_html => { :class => 'span8' } %>
-  </div>
+  <% if can? :manage, Entry %>
+    <div class="control-group">
+      <%= f.input :important, :as => :boolean, :input_html => { :class => 'span8' } %>
+    </div>
+  <% end %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
