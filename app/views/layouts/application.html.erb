@@ -48,13 +48,14 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <% if can? :create, :entry %>
-                <li><%= link_to "New Entry", new_entry_path  %></li>
+                <li><%= link_to '<i class="icon-plus icon-white"></i> New Entry'.html_safe, new_entry_path  %></li>
               <% end %>
-              <li><%= link_to "Engelsystem", "https://engelsystem.de/", :target => "_blank" %></li>
-              <li><%= link_to "Fahrplan", "https://ohm2013.org/site/program/", :target => "_blank" %></li>
-              <li><%= link_to "Phonebook", "https://www.eventphone.de/guru2/phonebook", :target => "_blank" %></li>
-              <% if current_user && (current_user.has_role? :admin) %>
-                <li><%= link_to "Admin", users_path %></li>
+              <li><%= link_to '<i class="icon-flag icon-white"></i> Engelsystem'.html_safe, "https://engelsystem.de/", :target => "_blank" %></li>
+              <li><%= link_to '<i class="icon-list icon-white"></i> Fahrplan'.html_safe, "https://ohm2013.org/site/program/", :target => "_blank" %></li>
+              <li><%= link_to '<i class="icon-book icon-white"></i> Phonebook'.html_safe, "https://www.eventphone.de/guru2/phonebook", :target => "_blank" %></li>
+              <% #if current_user && (current_user.has_role? :admin) %>
+              <% if can? :manage, User %>
+                <li><%= link_to '<i class="icon-home icon-briefcase"></i> Admin'.html_safe, users_path %></li>
               <% end %>
             </ul>
             <ul class="nav pull-right">
@@ -64,11 +65,11 @@
                 <% end %> 
               </li>
               <% if current_user %>
-                <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
-                <li><%= link_to "Logout", :logout %>
+                <li><%= link_to '<i class="icon-user icon-white"></i> Edit Profile'.html_safe, edit_user_path(current_user.id) %></li>
+                <li><%= link_to '<i class="icon-off icon-white"></i> Logout'.html_safe, :logout %>
               <% else %>
-                <li><%= link_to "Register", new_user_path  %></li>
-                <li><%= link_to "Login", :login  %></li>
+                <li><%= link_to '<i class="icon-edit icon-white"></i> Register'.html_safe, new_user_path  %></li>
+                <li><%= link_to '<i class="icon-download icon-white"></i> Login'.html_safe, :login  %></li>
               <% end %>
             </ul>
 
