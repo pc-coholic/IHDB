@@ -13,9 +13,10 @@ class Ability
       can :create, :user_session
       can :destroy, :user_session
 
-      # Can read and update Entries
-      can :read, Entry
+      # Can create, update and read Entries
+      can :create, Entry
       can :update, Entry
+      can :read, Entry
 
       # Can update own profile
       can :create, User
