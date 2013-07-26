@@ -47,7 +47,7 @@
           <a class="brand" href="<%= root_url %>">IHDB</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <% if can? :create, :entry %>
+              <% if can? :create, Entry %>
                 <li><%= link_to '<i class="icon-plus icon-white"></i> New Entry'.html_safe, new_entry_path  %></li>
               <% end %>
               <li><%= link_to '<i class="icon-flag icon-white"></i> Engelsystem'.html_safe, "https://engelsystem.de/", :target => "_blank" %></li>
@@ -59,11 +59,13 @@
               <% end %>
             </ul>
             <ul class="nav pull-right">
-              <li>
-                <%= form_tag(entries_path, :method => "get", class: "navbar-search pull-left", id: "search-form") do %>
-                  <%= text_field_tag :search, params[:search], class: "search-query", placeholder: "Search" %>
-                <% end %> 
-              </li>
+              <% if can? :read, Entry %>
+                <li>
+                  <%= form_tag(entries_path, :method => "get", class: "navbar-search pull-left", id: "search-form") do %>
+                    <%= text_field_tag :search, params[:search], class: "search-query", placeholder: "Search" %>
+                  <% end %> 
+                </li>
+              <% end %> 
               <% if current_user %>
                 <li><%= link_to '<i class="icon-user icon-white"></i> Edit Profile'.html_safe, edit_user_path(current_user.id) %></li>
                 <li><%= link_to '<i class="icon-off icon-white"></i> Logout'.html_safe, :logout %>
