@@ -43,6 +43,10 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
+    if cannot? :manage, Entry
+      params[:entry][:important] = ''
+    end
+
     @entry = Entry.new(params[:entry])
 
     respond_to do |format|
@@ -60,6 +64,10 @@ class EntriesController < ApplicationController
   # PUT /entries/1.json
   def update
     @entry = Entry.find(params[:id])
+
+    if cannot? :manage, Entry
+      params[:entry][:important] = @entry[:important]
+    end
 
     respond_to do |format|
       if @entry.update_attributes(params[:entry])
