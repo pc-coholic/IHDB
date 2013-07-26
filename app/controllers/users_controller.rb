@@ -42,6 +42,10 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    if cannot? :manage, User
+      params[:user][:roles] = ''
+    end
+
     @user = User.new(params[:user])
 
     respond_to do |format|
@@ -59,6 +63,10 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+
+    if cannot? :manage, User
+      params[:user][:roles] = @user[:roles]
+    end
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
