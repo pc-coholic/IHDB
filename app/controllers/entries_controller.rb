@@ -51,6 +51,8 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
+    	@entry.mark_as_read! :for => current_user
+
         format.html { redirect_to entries_url, notice: 'Entry was successfully created.' }
         format.json { render json: @entry, status: :created, location: @entry }
       else
@@ -71,6 +73,8 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.update_attributes(params[:entry])
+    	@entry.mark_as_read! :for => current_user
+
         format.html { redirect_to entries_url, notice: 'Entry was successfully updated.' }
         format.json { head :no_content }
       else
