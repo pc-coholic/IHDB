@@ -39,7 +39,7 @@
                       :class => 'btn btn-mini btn-danger' %>
   	  <% end %>
   	  <% if entry.unread?(current_user) %>
-          <%= link_to t('markasread', :default => t("markasread")),
+          <%= link_to t('.markasread', :default => t("markasread")),
                       markasread_entry_path(entry), :class => 'btn btn-mini btn-success' %>
   	  <% end %>
        </div>

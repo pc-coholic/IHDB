@@ -90,4 +90,36 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # GET /users/1/activate
+  # GET /users/1/activate.json
+  def activate
+    @user = User.find(params[:id])
+ 
+   respond_to do |format|
+      if @user.update_attributes(:roles => :user)
+        format.html { redirect_to users_url, notice: 'User was successfully activated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # POST /users/1/makeadmin
+  # POST /users/1/makeadmin.json
+  def makeadmin
+    @user = User.find(params[:id])
+ 
+   respond_to do |format|
+      if @user.update_attributes(:roles => @user.roles.to_s + ", admin")
+        format.html { redirect_to users_url, notice: 'User was successfully made admin.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end

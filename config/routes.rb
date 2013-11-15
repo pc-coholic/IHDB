@@ -1,8 +1,10 @@
 IHDB::Application.routes.draw do
   get "welcome/index"
 
-  resources :users
-
+  resources :users do
+    get :activate, on: :member
+    post :makeadmin, on: :member
+  end
 
   resources :entries do
     get :markasread, on: :member
