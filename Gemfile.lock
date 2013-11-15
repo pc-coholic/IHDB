@@ -92,8 +92,6 @@ GEM
       activesupport (= 3.2.11)
       bundler (~> 1.0)
       railties (= 3.2.11)
-    rails-bootstrap-helpers (0.1.0)
-      rails (>= 3.2.11)
     railties (3.2.11)
       actionpack (= 3.2.11)
       activesupport (= 3.2.11)
@@ -147,7 +145,6 @@ DEPENDENCIES
   newrelic_rpm
   pg
   rails (= 3.2.11)
-  rails-bootstrap-helpers
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3
