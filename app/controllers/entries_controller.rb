@@ -103,7 +103,7 @@ class EntriesController < ApplicationController
     @entry.mark_as_read! :for => current_user
     
     respond_to do |format|
-      format.html { redirect_to entries_url, notice: 'Entry was successfully marked as read updated.' }
+      format.html { redirect_to entries_url, notice: 'Entry was successfully marked as read.' }
       format.json { head :no_content }
     end
   end
