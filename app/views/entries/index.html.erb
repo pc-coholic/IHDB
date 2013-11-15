@@ -3,6 +3,12 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
+<%= accordion "unique_id" do |a| %>
+  <% a.group "heading" do %>
+    content
+  <% end %>
+<% end %>
+
 <div class="accordion" id="accordion2">
   <% @entries.each do |entry| %>
     <div class="accordion-group">

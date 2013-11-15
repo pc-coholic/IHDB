@@ -52,5 +52,7 @@ gem "cancan"
 gem "bluecloth"
 gem "simple_form"
 gem "unread"
-gem "twitter-bootstrap-rails"
+#gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem "rails-bootstrap-helpers"
 gem "newrelic_rpm"

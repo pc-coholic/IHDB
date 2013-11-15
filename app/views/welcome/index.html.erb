@@ -3,3 +3,10 @@
   <h1>Welcome to IHDB</h1>
 </div>
 <p>You know how this works. Go ahead and register or login.</p>
+
+<%= accordion "unique_id" do |a| %>
+  <% a.group "heading" do %>
+    content
+  <% end %>
+<% end %>
+
