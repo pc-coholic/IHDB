@@ -4,8 +4,11 @@ IHDB::Application.routes.draw do
   resources :users
 
 
-  resources :entries
+  resources :entries do
+    get :markasread, on: :member
+  end
 
+  #match 'entries/:id/markasread' => 'entries#markasread', :as => :markasread
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

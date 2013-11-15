@@ -13,14 +13,14 @@
           <% end %>
 
           <% if entry.updated_at == entry.created_at and entry.unread?(current_user) %>
-            <span class="label label-success">New!</span>
+            <span class="label label-success"><%= t("New") %>!</span>
           <% elsif entry.unread?(current_user) %>
-            <span class="label label-info">Updated!</span>
+            <span class="label label-info"><%= t("Updated") %>!</span>
           <% end %>
           
           <%= entry.title %>
 
-          <span class="pull-right">Updated: <%=l entry.updated_at %></span>
+          <span class="pull-right"><%= t("Updated") %>: <%=l entry.updated_at %></span>
         </a>
         <div class="accordion-inner">
           <%= BlueCloth.new(entry.abstract).to_html.html_safe %>
@@ -38,7 +38,11 @@
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
   	  <% end %>
-        </div>
+  	  <% if entry.unread?(current_user) %>
+          <%= link_to t('markasread', :default => t("markasread")),
+                      markasread_entry_path(entry), :class => 'btn btn-mini btn-success' %>
+  	  <% end %>
+       </div>
       </div>
     </div>
   <% end %>

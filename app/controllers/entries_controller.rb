@@ -95,4 +95,16 @@ class EntriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # GET /entries/1/markasread
+  # GET /entries/1/markasread.json
+  def markasread
+    @entry = Entry.find(params[:id])
+    @entry.mark_as_read! :for => current_user
+    
+    respond_to do |format|
+      format.html { redirect_to entries_url, notice: 'Entry was successfully marked as read updated.' }
+      format.json { head :no_content }
+    end
+  end
 end

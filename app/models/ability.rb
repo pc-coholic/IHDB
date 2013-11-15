@@ -14,9 +14,11 @@ class Ability
       can :destroy, :user_session
 
       # Can create, update and read Entries
+      # and mark them as read
       can :create, Entry
       can :update, Entry
       can :read, Entry
+      can :markasread, Entry
 
       # Can update own profile
       can :create, User
