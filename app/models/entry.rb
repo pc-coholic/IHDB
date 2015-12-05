@@ -8,7 +8,7 @@ class Entry < ActiveRecord::Base
     else
       #find(:all, :order => "updated_at DESC")
       #find(:all, :order => "important DESC, updated_at DESC")
-      find(:all, :order => "updated_at DESC")
+      find(:all, :order => "important DESC")
     end
   end
 end
