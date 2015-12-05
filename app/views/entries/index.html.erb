@@ -5,7 +5,7 @@
 
 <div class="accordion" id="accordion2">
   <% @entries.each do |entry| %>
-  <% headingclass = entry.important ? "alert-error" : "alert-info" -%>
+  <% headingclass = entry.important ? "alert-error" : "alert-info" %>
     <div class="accordion-group">
       <div class="accordion-heading">
         <a class="accordion-toggle <%= headingclass %>">" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= entry.id %>">
