@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all(:all, :order => "id ASC")
+    @users = User.find(:all, :order => "Id ASC")
 
     respond_to do |format|
       format.html # index.html.erb
