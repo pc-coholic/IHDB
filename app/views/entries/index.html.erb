@@ -8,7 +8,7 @@
   <% headingclass = entry.important ? "alert-error" : "alert-info" %>
     <div class="accordion-group">
       <div class="accordion-heading">
-        <a class="accordion-toggle <%= headingclass %>">" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= entry.id %>">
+        <a class="accordion-toggle <%= headingclass %>" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= entry.id %>">
           <% if entry.important? %>
             <span class="label label-important">Important!</span>
           <% end %>
