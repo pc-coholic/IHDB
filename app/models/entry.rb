@@ -4,7 +4,7 @@ class Entry < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['abstract LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%"])
+      #find(:all, :conditions => ['abstract LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%"])
     else
       #find(:all, :order => "updated_at DESC")
       #find(:all, :order => "important DESC, updated_at DESC")
