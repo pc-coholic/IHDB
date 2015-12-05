@@ -50,9 +50,9 @@
               <% if can? :create, Entry %>
                 <li><%= link_to '<i class="icon-plus icon-white"></i> New Entry'.html_safe, new_entry_path  %></li>
               <% end %>
-              <li><%= link_to '<i class="icon-flag icon-white"></i> Engelsystem'.html_safe, "https://engelsystem.de/31c3/", :target => "_blank" %></li>
-              <li><%= link_to '<i class="icon-list icon-white"></i> Fahrplan'.html_safe, "https://events.ccc.de/congress/2014/Fahrplan/", :target => "_blank" %></li>
-              <li><%= link_to '<i class="icon-globe icon-white"></i> Wiki'.html_safe, "https://events.ccc.de/congress/2014/wiki/", :target => "_blank" %></li>
+              <li><%= link_to '<i class="icon-flag icon-white"></i> Engelsystem'.html_safe, "https://engelsystem.de/32c3/", :target => "_blank" %></li>
+              <li><%= link_to '<i class="icon-list icon-white"></i> Fahrplan'.html_safe, "https://events.ccc.de/congress/2015/Fahrplan/", :target => "_blank" %></li>
+              <li><%= link_to '<i class="icon-globe icon-white"></i> Wiki'.html_safe, "https://events.ccc.de/congress/2015/wiki/", :target => "_blank" %></li>
               <li><%= link_to '<i class="icon-book icon-white"></i> Phonebook'.html_safe, "https://www.eventphone.de/guru2/phonebook", :target => "_blank" %></li>
               <% #if current_user && (current_user.has_role? :admin) %>
               <% if can? :manage, User %>
