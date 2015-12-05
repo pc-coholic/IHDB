@@ -44,7 +44,7 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
     if cannot? :manage, Entry
-      params[:entry][:important] = ''
+      params[:entry][:important] = '0'
     end
 
     @entry = Entry.new(params[:entry])
