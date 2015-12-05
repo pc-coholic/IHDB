@@ -7,7 +7,8 @@ class Entry < ActiveRecord::Base
       find(:all, :conditions => ['abstract LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%"])
     else
       #find(:all, :order => "updated_at DESC")
-      find(:all, :order => "important DESC, updated_at DESC")
+      #find(:all, :order => "important DESC, updated_at DESC")
+      find(:all, :order => "important DESC")
     end
   end
 end
